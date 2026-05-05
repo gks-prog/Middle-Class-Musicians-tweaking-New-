@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- SEO & Meta Tags -->
+    <title>Middle Class Musicians | Premium Recording Studio in Delhi</title>
+    <meta name="description" content="Premium recording studio in Delhi. Professional mixing, mastering, hip-hop, boom bap, and metal beat production. Elevate your sound with Wenon Bont." />
+    <meta name="keywords" content="recording studio Delhi, hip-hop production, boom bap beats, mixing and mastering, Wenon Bont, Middle Class Musicians, artist management" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Middle Class Musicians | The Vault" />
+    <meta property="og:description" content="Cinematic recording, mixing, and high-end beat production." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:url" content="https://middleclassmusicians.in" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Floating Musical Notes Container -->
+    <div id="floating-notes-container" aria-hidden="true" style="position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden;"></div>
+
+    <!-- UI Sound Effects -->
+    <audio id="sfx-hover" src="https://actions.google.com/sounds/v1/interfaces/button_rollover.ogg" preload="auto"></audio>
+    <audio id="sfx-click" src="https://actions.google.com/sounds/v1/interfaces/button_click.ogg" preload="auto"></audio>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <h1 class="loader__text glow-text">Middle Class Musicians</h1>
+    </div>
+
+    <!-- Audio Engine -->
+    <audio id="global-audio" crossorigin="anonymous"></audio>
+
+    <div class="audio-visualizer-container" id="visualizer-container" aria-hidden="true">
+        <canvas id="global-visualizer"></canvas>
+    </div>
+
+    <!-- Popped-out Tile Overlay -->
+    <div class="zoomed-tile-overlay" id="zoomed-overlay">
+        <button class="zoomed-close-btn sfx-trigger" id="close-zoomed" aria-label="Close Preview">×</button>
+        <img id="zoomed-img" src="" alt="Album Art" />
+        <h3 id="zoomed-title" style="font-size: clamp(1.5rem, 5vw, 2rem); margin-bottom: 0.2rem;"></h3>
+        <p id="zoomed-artist" style="color: var(--text-secondary);"></p>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__container">
+         <a href="/" class="header__logo sfx-trigger">
+                <span class="header__logo-text">MCM</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#studio" class="nav__link sfx-trigger">The Space</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link sfx-trigger">The Work</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link sfx-trigger">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="header__cta">
+                <a href="#contact" class="btn btn--primary btn--header sfx-trigger">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__bg"></div>
+            <div class="hero__content">
+                <h1 class="hero__title glow-text">RECORD. CREATE. PERFORM.</h1>
+                <p class="hero__subtitle">Premium Recording Studio in Delhi – Starting ₹350/hr</p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--whatsapp btn--large sfx-trigger">Book Session</a>
+                    <button id="hero-play-btn" class="btn btn--minimal sfx-trigger" data-audio-src="https://actions.google.com/sounds/v1/water/rain_on_roof.ogg" aria-label="Play Demo Beat">
+                        <span class="btn__icon-wrapper">
+                            <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            <svg class="icon-pause hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                        </span>
+                        Demo Beat
+                    </button>
+                </div>
+            </div>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <!-- Studio Showcase -->
+        <section class="studio fade-section" id="studio">
+            <div class="container">
+                <header class="section-header fade-in">
+                    <h2 class="section-title">The Space</h2>
+                    <p class="section-subtitle">Cinematic lighting. Underground roots.</p>
+                </header>
+                <div class="collage-container fade-in">
+                    <div class="collage-item collage-video sfx-trigger">
+                        <video class="collage-media" autoplay loop muted playsinline>
+                            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                        </video>
+                        <div class="collage-overlay"><span>Live Room</span></div>
+                    </div>
+                    <div class="collage-item collage-img-1 sfx-trigger">
+                         <div class="collage-media" style="background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+                         <div class="collage-overlay"><span>Control Room</span></div>
+                    </div>
+                    <div class="collage-item collage-img-2 sfx-trigger">
+                        <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=800&auto=format&fit=crop" class="collage-media" alt="Vocal Booth" />
+                        <div class="collage-overlay"><span>Vocal Booth</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Carousel -->
+        <section class="portfolio fade-section" id="portfolio">
+            <header class="section-header fade-in">
+                <h2 class="section-title">Sonic Archive</h2>
+                <p class="section-subtitle">Click to experience the sound. Swipe to browse.</p>
+            </header>
+            
+            <div class="portfolio-carousel-wrapper fade-in" id="portfolio-wrapper">
+                <div class="portfolio-track" id="portfolio-track">
+                    <article class="portfolio-item sfx-trigger" data-audio-src="https://actions.google.com/sounds/v1/science_fiction/scifi_engine_startup.ogg">
+                        <div class="portfolio-item__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=600&auto=format&fit=crop" alt="O Piyaa" class="portfolio-item__image" loading="lazy" />
+                            <div class="portfolio-item__overlay"><div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+                        </div>
+                        <h3 class="portfolio-item__title">O Piyaa</h3>
+                        <p class="portfolio-item__artist">Masky Feat. Wenon Bont</p>
+                    </article>
+
+                    <article class="portfolio-item sfx-trigger" data-audio-src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg">
+                        <div class="portfolio-item__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" alt="Concrete" class="portfolio-item__image" loading="lazy" />
+                            <div class="portfolio-item__overlay"><div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+                        </div>
+                        <h3 class="portfolio-item__title">Concrete Textures</h3>
+                        <p class="portfolio-item__artist">Boom Bap Instrumentals</p>
+                    </article>
+
+                    <article class="portfolio-item sfx-trigger" data-audio-src="https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg">
+                        <div class="portfolio-item__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600&auto=format&fit=crop" alt="Global" class="portfolio-item__image" loading="lazy" />
+                            <div class="portfolio-item__overlay"><div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+                        </div>
+                        <h3 class="portfolio-item__title">Dark Horizons</h3>
+                        <p class="portfolio-item__artist">Cinematic Metal Cuts</p>
+                    </article>
+
+                    <article class="portfolio-item sfx-trigger" data-audio-src="https://actions.google.com/sounds/v1/science_fiction/scifi_engine_startup.ogg">
+                        <div class="portfolio-item__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1520872024865-3ff2805d8bb3?q=80&w=600&auto=format&fit=crop" alt="Midnight" class="portfolio-item__image" loading="lazy" />
+                            <div class="portfolio-item__overlay"><div class="play-indicator"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+                        </div>
+                        <h3 class="portfolio-item__title">Midnight Run</h3>
+                        <p class="portfolio-item__artist">Underground Collective</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="portfolio-controls fade-in">
+                <button class="carousel-btn sfx-trigger" id="prev-btn" aria-label="Previous Slide">
+                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="carousel-btn sfx-trigger" id="next-btn" aria-label="Next Slide">
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+        </section>
+
+       <!-- INTERACTIVE HUB -->
+        <section class="interactive-section fade-section" id="interactive-hub">
+            <div class="container text-center">
+                <header class="section-header fade-in">
+                    <h2 class="section-title">The Vault</h2>
+                    <p class="section-subtitle">What else do we do?</p>
+                </header>
+                
+                <div class="magic-hub-wrapper fade-in">
+                    <div class="magic-hub" id="magic-hub">
+                        <button id="magic-btn" class="btn--minimal massive-btn sfx-trigger" aria-expanded="false">
+                            <span class="btn-text">Don't Touch It</span>
+                        </button>
+                        
+                        <div class="sub-nodes" id="sub-nodes-container">
+                            <div class="sub-node glass-panel sfx-trigger"><i data-lucide="mic"></i> Recording</div>
+                            <div class="sub-node glass-panel sfx-trigger"><i data-lucide="sliders"></i> Mixing & Mastering</div>
+                            <div class="sub-node glass-panel sfx-trigger"><i data-lucide="drum"></i> Beat Production</div>
+                            <div class="sub-node glass-panel sfx-trigger"><i data-lucide="briefcase"></i> Music Business</div>
+                            <div class="sub-node glass-panel sfx-trigger"><i data-lucide="users"></i> Artist Mgmt</div>
+                            <div class="sub-node glass-panel sfx-trigger"><i data-lucide="video"></i> Video Production</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews & Video Feedback -->
+        <section class="reviews-section fade-section" id="reviews">
+            <div class="container">
+                <header class="section-header fade-in">
+                    <h2 class="section-title">Word on the Street</h2>
+                    <p class="section-subtitle">Real artists. Real sound.</p>
+                </header>
+
+                <div class="video-feedback-grid fade-in">
+                    <div class="video-card sfx-trigger">
+                        <video autoplay loop muted playsinline class="bg-video">
+                            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                        </video>
+                        <div class="video-overlay">
+                            <h4>"Best mix I've ever had."</h4>
+                            <p>@young_craze</p>
+                        </div>
+                    </div>
+                    <div class="video-card sfx-trigger">
+                        <video autoplay loop muted playsinline class="bg-video">
+                            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                        </video>
+                        <div class="video-overlay">
+                            <h4>"The vibe is unmatched."</h4>
+                            <p>@sarah_sings</p>
+                        </div>
+                    </div>
+                    <div class="video-card sfx-trigger">
+                        <video autoplay loop muted playsinline class="bg-video">
+                            <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                        </video>
+                        <div class="video-overlay">
+                            <h4>"Industry standard quality."</h4>
+                            <p>@producer_mike</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marquee -->
+            <div class="marquee-container fade-in">
+                <div class="marquee-track">
+                    <div class="review-pill">
+                        <div class="stars">★★★★★</div>
+                        <p>"Crazy energy in the booth. Bunny knows exactly how to push your vocals and get the best take out of you." <span>- Amit K.</span></p>
+                    </div>
+                    <div class="review-pill">
+                        <div class="stars">★★★★★</div>
+                        <p>"Best studio in Delhi hands down. The mixes are industry standard and the equipment is top tier." <span>- Rahul T.</span></p>
+                    </div>
+                    <div class="review-pill">
+                        <div class="stars">★★★★★</div>
+                        <p>"Pulled up to record a drill track. The type beats they had ready were absolute fire. One stop solution." <span>- Sneha V.</span></p>
+                    </div>
+                    <div class="review-pill">
+                        <div class="stars">★★★★★</div>
+                        <p>"Professional, clean, and massive sound. They even helped me shoot content for the release." <span>- Divya S.</span></p>
+                    </div>
+                    <!-- Duplicates for loop -->
+                    <div class="review-pill">
+                        <div class="stars">★★★★★</div>
+                        <p>"Crazy energy in the booth. Bunny knows exactly how to push your vocals and get the best take out of you." <span>- Amit K.</span></p>
+                    </div>
+                    <div class="review-pill">
+                        <div class="stars">★★★★★</div>
+                        <p>"Best studio in Delhi hands down. The mixes are industry standard and the equipment is top tier." <span>- Rahul T.</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact fade-section" id="contact">
+            <div class="container">
+                <div class="contact__grid">
+                    <div class="contact__info fade-in">
+                        <h2 class="section-title">Lock In Your Sound.</h2>
+                        <p class="contact__desc">Ready to craft premium sonic architecture? Drop your details below and we will route your request directly to our WhatsApp.</p>
+                    </div>
+                    <div class="contact__form-wrapper fade-in">
+                        <form id="booking-form" class="minimal-form">
+                            <div class="form-row"><input type="text" id="name" class="minimal-input" placeholder="Your Name" required /></div>
+                            <div class="form-row"><input type="tel" id="phone" class="minimal-input" placeholder="Phone Number" required /></div>
+                            <div class="form-row"><input type="text" id="ig" class="minimal-input" placeholder="Instagram Handle" required /></div>
+                            <div class="form-row"><textarea id="query" class="minimal-input minimal-textarea" rows="4" placeholder="Briefly describe your project (e.g., Mixing, Recording, Beat Production)..." required></textarea></div>
+                            <button type="submit" class="btn btn--whatsapp btn--full sfx-trigger">Send via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="footer__map-container fade-in">
+                <a href="https://maps.app.goo.gl/fvCJ7kYtDuzFVWzVA?g_st=ac" target="_blank" rel="noopener noreferrer" class="btn btn--minimal footer__map-btn sfx-trigger">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Open Studio Location Map
+                </a>
+            </div>
+
+            <div class="footer__socials fade-in">
+                <a href="mailto:inquiries@middleclassmusicians.in" class="footer__social-link sfx-trigger" aria-label="Email Us via Gmail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>Gmail</span>
+                </a>
+                <a href="https://www.instagram.com/middleclassmusicians/" target="_blank" rel="noopener noreferrer" class="footer__social-link sfx-trigger" aria-label="Follow us on Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+            </div>
+
+            <span class="footer__logo">Middle Class Musicians</span>
+            <p class="footer__copy">&copy; 2026. Premium sounds, cinematic roots.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919315778147" target="_blank" class="floating-wa sfx-trigger" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+</body>
+</html>
